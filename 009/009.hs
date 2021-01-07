@@ -1,2 +1,5 @@
-main = print $ head $ filter (\(c, b, a) -> a^2 + b^2 == c^2) [(x, y, perimiter - x - y) | x <- [1 .. perimiter], y <- [1 .. min (perimiter - x)  (x - 1) ] ]
-    where perimiter = 1000
+main :: IO ()
+main = print . head . filter rightTriangle $ [ (x, y, perimeter - x - y) | x <- [1 .. perimeter], y <- [1 .. min (perimeter - x)  (x - 1) ] ]
+  where
+    perimeter = 1000
+    rightTriangle (a, b, c) = a^2 + b^2 == c^2
